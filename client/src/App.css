@@ -120,7 +120,13 @@ body {
   font-weight: bold;
   width: 90%;
 }
+.all {
 
+  background-color: black;
+  color: white;
+  width: 6rem;
+  font-weight: bold;
+}
 
 .title-launchers, .launcher-div {
 

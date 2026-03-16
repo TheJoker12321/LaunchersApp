@@ -27,6 +27,9 @@ function ShowLaunchers() {
 
     async function deleteLauncher(e) {
 
+        e.stopPropagation()
+        const newData = data.filter((obj) => obj._id !== e.target.id)
+        setData(newData)        
         await axios.delete(`http://localhost:3000/api/launchers/${e.target.id}`)
         setFlag(!flag)
 
@@ -35,6 +38,7 @@ function ShowLaunchers() {
     function showAll() {
 
         setDataShow(data)
+
     }
 
     async function searchById() {
@@ -79,7 +83,7 @@ function ShowLaunchers() {
 
                 <h1 id="title">Launchers</h1>
                 <div className="searching">
-                    <button onClick={showAll}>ShowAll</button>
+                    <button onClick={showAll} className="all">ShowAll</button>
                     <div className="search-div">
                         <input type="text" placeholder="search by id..." onChange={e => setId(e.target.value)}/>
                         <button onClick={searchById}>Search</button>

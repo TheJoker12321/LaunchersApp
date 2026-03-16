@@ -9,7 +9,7 @@ function Details() {
 
         <div className="det-page">
             <div className="det-div">
-                <h1 className="id-detail">id launcher: {launcherChoose.id}</h1>
+                <h1 className="id-detail">id launcher:   {launcherChoose._id}</h1>
                 <p className="name-detail">name launcher: {launcherChoose.name}</p>
                 <p className="type-detail">rocket type of launcher: {launcherChoose.rocketType}</p>
                 <p className="lat-detail">latitude: {launcherChoose.latitude}</p>

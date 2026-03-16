@@ -107,4 +107,29 @@ api.delete('/launchers/:id', async (req, res) => {
 
 })
 
+api.put('/launchers/:id', async (req, res) => {
+
+    const { updateLauncher } = req.body
+    const { id } = req.params
+
+    try {
+
+        await db.collection('launchers').updateOne({_id: new ObjectId(id)}, {$set: {updateLauncher}})
+
+        res.status(203).json({
+
+            message: 'updated successfully'
+
+        })
+    } catch (err) {
+
+        res.status(500).json({
+
+            error: err.message
+            
+        })
+    }
+
+})
+
 export default api
