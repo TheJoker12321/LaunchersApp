@@ -1,8 +1,14 @@
+import FormLauncher from "../components/FormLauncher"
+
 function AddLauncher() {
+
+
 
     return (
 
-        <div></div>
+        <div>
+            <FormLauncher />
+        </div>
     )
 }
 

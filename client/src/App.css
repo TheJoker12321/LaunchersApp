@@ -1,0 +1,92 @@
+body {
+
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+
+}
+
+.home-page {
+
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(127, 148, 255, 0.359);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.show-div {
+
+  height: 90%;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title-launchers, .launcher-div {
+
+  display: flex;
+  justify-content: space-between;
+  width:90%;
+  font-weight: bold;
+  border: 1px solid black;
+  height: 4rem;
+
+}
+
+/* .launcher-div:nth-child {
+
+  background-color: rgba(128, 128, 128, 0.484);
+} */
+
+.id-title, .name-title, .type-title, .lat-title, .long-title, .city-title, .empty {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 11%;
+  border: 1px solid black;
+  border-bottom: none ;
+  border-top: none ;
+  border-right: none;
+}
+.id-title {
+
+  width: 23%;
+}
+
+
+
+.launcher-city, .launcher-rocket, .launcher-id, .launcher-lat, .launcher-long, .launcher-name, .button-del {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 11%;
+  border: 1px solid black;
+  border-bottom: none ;
+  border-top: none ;
+  border-right: none;
+}
+
+
+
+.launcher-id {
+
+  width: 23%;
+}
+
+.delete-launcher {
+
+  height: 100%;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  background-color: rgba(0, 0, 255, 0.622);
+  color: white;
+}
+
