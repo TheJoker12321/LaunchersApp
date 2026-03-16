@@ -1,7 +1,13 @@
+import Navbar from "../components/Navbar"
+import SearchLauncher from "../components/SearchLauncher"
+
 function LauncherDetails() {
 
     return (
-        <div></div>
+        <div>
+            <Navbar />
+            <SearchLauncher />
+        </div>
     )
 }
 

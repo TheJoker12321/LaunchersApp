@@ -1,25 +1,73 @@
+import axios from "axios"
+import { useState } from "react"
+
 function FormLauncher() {
+
+    const [name, setName] = useState("")
+    const [type, setType] = useState("")
+    const [lat, setLat] = useState(null)
+    const [long, setLong] = useState(null)
+    const [city, setCity] = useState("")
+
+
+    async function createLauncher(e) {
+
+        e.preventDefault()
+        
+        const launcher = {
+
+            name, 
+            rocketType: type, 
+            latitude: lat,
+            longitude: long,
+            city
+
+        }
+
+        try {
+
+            await fetch('http://localhost:3000/api/launchers', {
+
+                method: 'post',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(launcher)
+                
+            })
+            
+        } catch (err) {
+
+            console.error(err.message);
+            
+        }
+    }
 
     return (
 
         <div>
             <form>
                 <div>
-                    <label htmlFor=""></label>
-                    <input type="text" />
+                    <label htmlFor="name">Name: </label>
+                    <input type="text" id="name" onChange={e => setName(e.target.value)}/>
                 </div>
                 <div>
-                    <label htmlFor=""></label>
-                    <input type="text" />
+                    <label htmlFor="type">Rocket Type: </label>
+                    <input type="text" id="type" onChange={e => setType(e.target.value)}/>
                 </div>
                 <div>
-                    <label htmlFor=""></label>
-                    <input type="text" />
+                    <label htmlFor="lat">Latitude: </label>
+                    <input type="text" id="lat" onChange={e => setLat(Number(e.target.value))}/>
                 </div>
                 <div>
-                    <label htmlFor=""></label>
-                    <input type="text" />
+                    <label htmlFor="long">Longitude: </label>
+                    <input type="text" id="long" onChange={e => setLong(Number(e.target.value))}/>
                 </div>
+                <div>
+                    <label htmlFor="city">City: </label>
+                    <input type="text" id="city" onChange={e => setCity(e.target.value)}/>
+                </div>
+                <button onClick={(e) => createLauncher(e)}>Create</button>
             </form>
         </div>
     )

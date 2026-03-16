@@ -1,5 +1,7 @@
 export default function validLauncher(req, res, next) {
 
+    console.log(req.body);
+    
     const {name, rocketType, latitude, longitude, city} = req.body
     
     if (typeof name !== 'string' || typeof rocketType !== 'string' || 
