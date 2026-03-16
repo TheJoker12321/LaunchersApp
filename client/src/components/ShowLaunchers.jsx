@@ -1,22 +1,27 @@
 import { useEffect } from "react"
 import { useState } from "react"
 import axios from 'axios'
+import ShowData from "./showData"
 
 function ShowLaunchers() {
 
     const [data, setData] = useState([])
     const [flag, setFlag] = useState(false)
+    const [dataShow, setDataShow] = useState([])
+    const [id, setId] = useState('')
+    const [city, setCity] = useState('')
+    const [type, setType] = useState('')
 
     useEffect(() => {
 
         async function getLaunchers() {
 
             const launchers = await axios.get('http://localhost:3000/api/launchers')
-            console.log(launchers);
             
             setData(launchers.data.launchers)
         }
         getLaunchers()
+        
 
     }, [flag])
 
@@ -27,38 +32,68 @@ function ShowLaunchers() {
 
     }
 
+    function showAll() {
+
+        setDataShow(data)
+    }
+
+    async function searchById() {
+
+        if (!id) return 
+        
+        try {
+
+            const launcherFound = await axios.get(`http://localhost:3000/api/launchers/${id}`)
+            
+            setDataShow([launcherFound.data.launcher])
+
+        } catch (err) {
+
+            console.error(err);
+            
+        }
+    }
+
+    function searchByCity() {
+
+        if (!city) return;
+
+        const result = data.filter((launcherObj) => launcherObj.city === city)
+
+        setDataShow(result)
+    }
+
+    function searchByType() {
+
+        if (!type) return;
+
+        const result = data.filter((launcherObj) => launcherObj.rocketType === type)
+
+        setDataShow(result)
+    }
+
     return (
 
         <>
-        <div className="show-div">
+            <div className="show-div">
 
-            <h1 id="title">Launchers</h1>
-            <div className="title-launchers">
-                <div className="id-title">id</div>
-                <div className="name-title">name</div>
-                <div className="type-title">rocket type</div>
-                <div className="lat-title">latitude</div>
-                <div className="long-title">longitude</div>
-                <div className="city-title">city</div>
-                <div className="empty"></div>
-        </div>
-            {Array.isArray(data) && data.map((launcherObj, index) => {
-                
-                return (
-                    
-                    <div key={index} className="launcher-div">
-                        <div className="launcher-id">{launcherObj._id}</div>
-                        <div className="launcher-name">{launcherObj.name}</div>
-                        <div className="launcher-rocket">{launcherObj.rocketType}</div>
-                        <div className="launcher-lat">{launcherObj.latitude}</div>
-                        <div className="launcher-long">{launcherObj.longitude}</div>
-                        <div className="launcher-city">{launcherObj.city}</div>
-                        <div className="button-del">
-                            <button id={launcherObj._id} className="delete-launcher" onClick={deleteLauncher}>Delete</button>
-                        </div>
+                <h1 id="title">Launchers</h1>
+                <div className="searching">
+                    <button onClick={showAll}>ShowAll</button>
+                    <div className="search-div">
+                        <input type="text" placeholder="search by id..." onChange={e => setId(e.target.value)}/>
+                        <button onClick={searchById}>Search</button>
                     </div>
-                )
-            })}
+                    <div className="search-div">
+                        <input type="text" placeholder="search by city" onChange={e => setCity(e.target.value)}/>
+                        <button onClick={searchByCity}>Search</button>
+                    </div>
+                    <div className="search-div">
+                        <input type="text" placeholder="search by type..." onChange={e => setType(e.target.value)}/>
+                        <button onClick={searchByType}>Search</button>
+                    </div>
+                </div>
+                <ShowData data={dataShow} onclick={deleteLauncher}/>
             </div>
         </>
     )

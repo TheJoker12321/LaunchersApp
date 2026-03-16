@@ -61,17 +61,8 @@ api.post('/launchers', validLauncher, async (req, res) => {
 
     try {
 
-        const {name, rocketType, latitude, longitude, city} = req.body
-        const launcher = {
-
-            name, 
-            rocketType, 
-            latitude,
-            longitude,
-            city
-
-        }
-
+        const {launcher} = req.body
+        
         await db.collection('launchers').insertOne(launcher)
 
         res.status(201).json({

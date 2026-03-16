@@ -1,12 +1,12 @@
+import Details from "../components/details"
 import Navbar from "../components/Navbar"
-import SearchLauncher from "../components/SearchLauncher"
 
 function LauncherDetails() {
 
     return (
         <div>
             <Navbar />
-            <SearchLauncher />
+            <Details />
         </div>
     )
 }

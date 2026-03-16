@@ -23,10 +23,10 @@ function Navbar() {
     return (
 
         
-        <div>
-            <button>Home</button>
-            <button>Add Launcher</button>
-            <button onClick={(e) => moveTo(e)}>Launcher Details</button>
+        <div className="navbar">
+            <button id="to-home" className="nav-button" onClick={(e) => moveTo(e)}>Home</button>
+            <button id="to-add" className="nav-button" onClick={(e) => moveTo(e)}>Add Launcher</button>
+            <button className="nav-button" onClick={(e) => moveTo(e)}>Launcher Details</button>
     </div>
     )
 }

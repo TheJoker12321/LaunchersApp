@@ -26,15 +26,7 @@ function FormLauncher() {
 
         try {
 
-            await fetch('http://localhost:3000/api/launchers', {
-
-                method: 'post',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(launcher)
-                
-            })
+            await axios.post('http://localhost:3000/api/launchers', {launcher})
             
         } catch (err) {
 
@@ -45,29 +37,30 @@ function FormLauncher() {
 
     return (
 
-        <div>
-            <form>
-                <div>
+        <div className="form-div">
+            <form className="post-launcher">
+                <h3 className="title-post">Post Launcher Form</h3>
+                <div className="input-div">
                     <label htmlFor="name">Name: </label>
                     <input type="text" id="name" onChange={e => setName(e.target.value)}/>
                 </div>
-                <div>
+                <div className="input-div">
                     <label htmlFor="type">Rocket Type: </label>
                     <input type="text" id="type" onChange={e => setType(e.target.value)}/>
                 </div>
-                <div>
+                <div className="input-div">
                     <label htmlFor="lat">Latitude: </label>
                     <input type="text" id="lat" onChange={e => setLat(Number(e.target.value))}/>
                 </div>
-                <div>
+                <div className="input-div">
                     <label htmlFor="long">Longitude: </label>
                     <input type="text" id="long" onChange={e => setLong(Number(e.target.value))}/>
                 </div>
-                <div>
+                <div className="input-div">
                     <label htmlFor="city">City: </label>
                     <input type="text" id="city" onChange={e => setCity(e.target.value)}/>
                 </div>
-                <button onClick={(e) => createLauncher(e)}>Create</button>
+                <button className="submit" onClick={(e) => createLauncher(e)}>Create</button>
             </form>
         </div>
     )

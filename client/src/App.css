@@ -14,7 +14,7 @@ body {
   width: 100vw;
   background-color: rgba(127, 148, 255, 0.359);
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
 }
 
@@ -27,6 +27,101 @@ body {
   align-items: center;
 }
 
+.searching {
+
+  display: flex;
+  width: 90%;
+  height: 3rem;
+  justify-content: space-between;
+}
+
+.search-div {
+
+  height: 100%;
+}
+
+.search-div input {
+
+  height: 90%;
+  font-size: 1rem;
+  padding-left: 1rem;
+
+}
+
+.search-div button {
+
+  height: 100%;
+  background-color: black;
+  color: white;
+  font-weight: bold;
+}
+
+.form-div {
+
+  background-color: rgba(127, 148, 255, 0.359);  
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.post-launcher {
+
+  height: 70%;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: rgba(255, 221, 192, 0.422);
+}
+
+.input-div {
+
+  height: 3rem;
+  width: 90%;
+  border-bottom: 1.5px solid black;
+  display: flex;
+  align-items: center;
+}
+
+.input-div input {
+
+  height: 2rem;
+  width: 20rem;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  padding-left: 1rem;
+  margin-left: 1rem;
+}
+
+
+.title-post {
+  
+  margin: 0;
+  padding-bottom: 0.5rem;
+  width: 40%;
+  text-align: center;
+  border-bottom: 1px solid black;
+}
+
+.submit {
+  
+  height: 3rem;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  background-color: rgba(0, 0, 255, 0.532);
+  font-size: 1rem;
+  color: white;
+  font-weight: bold;
+  width: 90%;
+}
+
+
 .title-launchers, .launcher-div {
 
   display: flex;
@@ -38,10 +133,7 @@ body {
 
 }
 
-/* .launcher-div:nth-child {
 
-  background-color: rgba(128, 128, 128, 0.484);
-} */
 
 .id-title, .name-title, .type-title, .lat-title, .long-title, .city-title, .empty {
 
@@ -73,7 +165,26 @@ body {
   border-right: none;
 }
 
+.navbar {
 
+  width: 100%;
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(127, 148, 255, 0.359);
+  border-bottom: 1px solid black;
+
+}
+
+.nav-button {
+
+  height: 70%;
+  width: 9rem;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 1px solid black;
+}
 
 .launcher-id {
 
@@ -90,3 +201,39 @@ body {
   color: white;
 }
 
+.det-page {
+
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(127, 148, 255, 0.359);;
+}
+
+.det-div {
+
+  height: 72%;
+  width: 50%;
+  border: 4px solid black;
+  border-radius: 25px;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background-color: rgba(100, 148, 237, 0.653);
+}
+
+.id-detail {
+
+  margin-top: 2rem;
+
+}
+
+.name-detail, .type-detail, .lat-detail, .long-detail, .city-detail {
+
+  font-size: 1.6rem;
+  padding-bottom: 10px;
+  border-bottom: 1px solid black ;
+}
