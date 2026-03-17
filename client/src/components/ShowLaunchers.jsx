@@ -91,8 +91,8 @@ function ShowLaunchers() {
     function searchByDestroyed() {
 
         if (!destroyed) return;
-
-        const result = data.filter((launcherObj) => launcherObj.destroyed === destroyed)
+        
+        const result = data.filter((launcherObj) => String(launcherObj.destroyed) === destroyed)        
 
         setDataShow(result)
     }
@@ -118,7 +118,7 @@ function ShowLaunchers() {
                         <button onClick={searchByType}>Search</button>
                     </div>
                     <div className="search-div">
-                        <select onChange={e => setDestroyed(Boolean(e.target.value))}>
+                        <select onChange={e => setDestroyed(e.target.value)}>
                             <option style={{display: 'none'}}></option>
                             <option value="true">Destroyed</option>
                             <option value="false">Not Destroyed</option>
