@@ -9,7 +9,6 @@ function GetUsers() {
     const navigate = useNavigate()
     const { setValueUpdated } = useStore()
     const [data, setData] = useState([])
-    const [show, setShow] = useState(false)
     const [flag, setFlag] = useState(false)
 
     useEffect(() => {
@@ -66,42 +65,33 @@ function GetUsers() {
 
     }
 
-    function getUsers() {
-
-        setShow(true)
-
-    }
-
-    function hideUsers() {
-
-        setShow(false)
-    }
 
     return (
 
-        <div>
+        <div className="get-users">
             
-            <button onClick={show && hideUsers || getUsers}>{show && 'hide' || 'Get All Users'}</button>
-            <div>
-                <div>id</div>
-                <div>username</div>
-                <div>password</div>
-                <div>email</div>
-                <div>user type</div>
-                <div>last login</div>
+            <div className="div-show-title">
+                <div className="id-title-show showing">id</div>
+                <div className="user-title-show showing">username</div>
+                <div className="pass-title-show showing">password</div>
+                <div className="email-title-show showing">email</div>
+                <div className="type-title-show showing">user type</div>
+                <div className="login-title-show showing">last login</div>
+                <div className="empty-show"></div>
+                <div className="empty-show"></div>
             </div>
             {Array.isArray(data) && data.map((userObj) => {
 
                 return (
-                    <div key={userObj._id}>
-                        <div>{userObj._id}</div>
-                        <div>{userObj.username}</div>
-                        <div>{userObj.password}</div>
-                        <div>{userObj.email}</div>
-                        <div>{userObj.user_type}</div>
-                        <div>{userObj.last_login}</div>
-                        <button onClick={() => moveToEdit(userObj)}>Edit</button>
-                        <button id={userObj._id} onClick={(e) => deleteUser(e)}>Delete</button>
+                    <div key={userObj._id} className="show-users-div">
+                        <div className="show-users id-show-users">{userObj._id}</div>
+                        <div className="show-users">{userObj.username}</div>
+                        <div className="show-users">{userObj.password}</div>
+                        <div className="show-users">{userObj.email}</div>
+                        <div className="show-users">{userObj.user_type}</div>
+                        <div className="show-users">{userObj.last_login}</div>
+                        <button className="edit-button" onClick={() => moveToEdit(userObj)}>Edit</button>
+                        <button className="delete-user" id={userObj._id} onClick={(e) => deleteUser(e)}>Delete</button>
                     </div>
                 )
             })}

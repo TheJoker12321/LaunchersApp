@@ -11,6 +11,7 @@ function ShowLaunchers() {
     const [id, setId] = useState('')
     const [city, setCity] = useState('')
     const [type, setType] = useState('')
+    const [destroyed, setDestroyed] = useState(null)
 
     useEffect(() => {
 
@@ -87,6 +88,15 @@ function ShowLaunchers() {
         setDataShow(result)
     }
 
+    function searchByDestroyed() {
+
+        if (!destroyed) return;
+
+        const result = data.filter((launcherObj) => launcherObj.destroyed === destroyed)
+
+        setDataShow(result)
+    }
+
     return (
 
         <>
@@ -106,6 +116,14 @@ function ShowLaunchers() {
                     <div className="search-div">
                         <input type="text" placeholder="search by type..." onChange={e => setType(e.target.value)}/>
                         <button onClick={searchByType}>Search</button>
+                    </div>
+                    <div className="search-div">
+                        <select onChange={e => setDestroyed(Boolean(e.target.value))}>
+                            <option style={{display: 'none'}}></option>
+                            <option value="true">Destroyed</option>
+                            <option value="false">Not Destroyed</option>
+                        </select>
+                        <button onClick={searchByDestroyed}>Search</button>
                     </div>
                 </div>
                 <ShowData data={dataShow} onclick={deleteLauncher}/>

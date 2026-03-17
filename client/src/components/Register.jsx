@@ -25,6 +25,7 @@ function Register() {
                 user_type: userType,
 
             }
+            
 
             const token = localStorage.getItem('token')
 

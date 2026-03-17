@@ -47,8 +47,8 @@ auth.get('/getUser', authorized, async (req, res) => {
     const {payload} = req.headers
     try {
 
-        const findUser = await db.collection('users').findOne({username: payload.username})
-        
+        const findUser = await db.collection('users').findOne({username: payload.username})        
+
         res.status(200).json({
             
             user: findUser
@@ -117,12 +117,9 @@ auth.post('/register/create', authorized, async (req, res) => {
 
 auth.post('/login', async (req, res) => {
 
-    const { user } = req.body
-    console.log(user);
-    
+    const { user } = req.body    
     
     const findUser = await db.collection('users').findOne({$and: [{username: user.username}, {password: user.password}]})
-    console.log(findUser);
     
     if (!findUser) {
 
@@ -188,7 +185,7 @@ auth.put('/register/update/:id', authorized, async (req, res) => {
         res.status(500).json({
 
             error: err.message
-            
+
         })
     }
 

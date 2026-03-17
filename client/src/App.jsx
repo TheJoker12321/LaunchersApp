@@ -44,9 +44,9 @@ function App() {
           <Route path='/getUsers' element={isVerified === 'admin' && <Users /> || <LoginPage />} />
           <Route path='/editUser' element={isVerified === 'admin' && <EditPage /> || <LoginPage />} />
           <Route path='/home' element={isVerified && <Home /> || <LoginPage />}/>
-          <Route path='launcher'>
-            <Route path='add' element={isVerified === 'admin' || isVerified === 'Intelligence Corps' && <AddLauncher /> || <LoginPage />} />
-            <Route path='details' element={isVerified === 'admin' || isVerified === 'Intelligence Corps' && <LauncherDetails /> || <LoginPage />}/>
+          <Route path='/launcher'>
+            <Route path='add' element={isVerified === 'admin' | isVerified === 'Intelligence Corps' && <AddLauncher /> || <LoginPage />} />
+            <Route path='details' element={isVerified === 'admin' | isVerified === 'Intelligence Corps' && <LauncherDetails /> || <LoginPage />}/>
           </Route>
         </Routes>
       </BrowserRouter>

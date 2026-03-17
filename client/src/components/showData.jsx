@@ -7,9 +7,9 @@ function ShowData({data, onclick}) {
     const {setLauncher} = useStore()
 
     function moveToDetails(launcherObj) {
-        
+                
         setLauncher(launcherObj)
-        navigate('/launcher/details')
+        navigate('/launcher/details')        
 
     }
 
