@@ -8,7 +8,7 @@ function Navbar() {
 
         if (e.target.id === 'to-home') {
 
-            navigate('/')
+            navigate('/home')
 
         } else if (e.target.id === 'to-add') {
 
