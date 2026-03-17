@@ -1,4 +1,6 @@
-אני השתמשתי בmongoDB על ידי image של doker אז צריך להריץ docker run -d --name my-mongo -p 27017:27017 -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=secret mongo:7.0
+אני השתמשתי בmongoDB על ידי image של doker אז צריך להריץ 
+
+docker run -d --name my-mongo -p 27017:27017 -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=secret mongo:7.0
 
 והקישור URI של הmongoDB הוא mongodb://admin:secret@localhost:27017
 
