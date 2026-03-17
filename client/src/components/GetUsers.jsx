@@ -2,10 +2,12 @@ import axios from "axios"
 import { useEffect } from "react"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import useStore from "../zustand/createZustand.js"
 
 function GetUsers() {
 
     const navigate = useNavigate()
+    const { setValueUpdated } = useStore()
     const [data, setData] = useState([])
     const [show, setShow] = useState(false)
     const [flag, setFlag] = useState(false)
@@ -35,8 +37,9 @@ function GetUsers() {
 
     }, [flag])
 
-    function moveToEdit() {
+    function moveToEdit(userObj) {
 
+        setValueUpdated(userObj)
         navigate('/editUser')
 
     }
@@ -97,7 +100,7 @@ function GetUsers() {
                         <div>{userObj.email}</div>
                         <div>{userObj.user_type}</div>
                         <div>{userObj.last_login}</div>
-                        <button onClick={moveToEdit}>Edit</button>
+                        <button onClick={() => moveToEdit(userObj)}>Edit</button>
                         <button id={userObj._id} onClick={(e) => deleteUser(e)}>Delete</button>
                     </div>
                 )

@@ -8,6 +8,7 @@ function FormLauncher() {
     const [lat, setLat] = useState(null)
     const [long, setLong] = useState(null)
     const [city, setCity] = useState("")
+    const [destroyed, setDestroyed] = useState(false)
 
 
     async function createLauncher(e) {
@@ -20,7 +21,8 @@ function FormLauncher() {
             rocketType: type, 
             latitude: lat,
             longitude: long,
-            city
+            city,
+            destroyed
 
         }
 
@@ -59,6 +61,14 @@ function FormLauncher() {
                 <div className="input-div">
                     <label htmlFor="city">City: </label>
                     <input type="text" id="city" onChange={e => setCity(e.target.value)}/>
+                </div>
+                <div className="input-div">
+                    <select id="" onChange={e => setDestroyed(Boolean(e.target.value))}>
+                        <option style={{display: 'none'}}></option>
+                        <option value="true">destroyed</option>
+                        <option value="false">not destroyed</option>
+                    </select>
+
                 </div>
                 <button className="submit" onClick={(e) => createLauncher(e)}>Create</button>
             </form>

@@ -4,8 +4,9 @@ import Home from './pages/Home'
 import AddLauncher from './pages/AddLauncher'
 import LauncherDetails from './pages/LauncherDetails'
 import LoginPage from './pages/LoginPage'
-import Register from './components/Register'
 import Users from './pages/Users'
+import EditPage from './pages/EditPage'
+import RegisterPage from './pages/RegisterPage'
 
 function App() {
 
@@ -18,8 +19,9 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<LoginPage />}/>
-          <Route path='/register' element={<Register />} />
+          <Route path='/register' element={<RegisterPage />} />
           <Route path='/getUsers' element={<Users />} />
+          <Route path='/editUser' element={<EditPage />} />
           <Route path='/home' element={<Home />}/>
           <Route path='launcher'>
             <Route path='add' element={<AddLauncher />} />

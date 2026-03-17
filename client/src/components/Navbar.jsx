@@ -14,9 +14,20 @@ function Navbar() {
 
             navigate('/launcher/add')
 
-        } else {
+        } else if(e.target.id === 'to-details') {
 
             navigate('/launcher/details')
+        } else if (e.target.id === 'to-register') {
+
+            navigate('/register')
+            
+        } else if (e.target.id === 'to-login') {
+
+            navigate('/')
+
+        } else {
+
+            navigate('/getUsers')
         }
     }
 
@@ -26,7 +37,11 @@ function Navbar() {
         <div className="navbar">
             <button id="to-home" className="nav-button" onClick={(e) => moveTo(e)}>Home</button>
             <button id="to-add" className="nav-button" onClick={(e) => moveTo(e)}>Add Launcher</button>
-            <button className="nav-button" onClick={(e) => moveTo(e)}>Launcher Details</button>
+            <button id="to-details" className="nav-button" onClick={(e) => moveTo(e)}>Launcher Details</button>
+            <button id="to-getUsers" className="nav-button" onClick={(e) => moveTo(e)}>Get Users</button>
+            <button id="to-login" className="nav-button" onClick={(e) => moveTo(e)}>Log In</button>
+            <button id="to-register" className="nav-button" onClick={(e) => moveTo(e)}>Register</button>
+            
     </div>
     )
 }

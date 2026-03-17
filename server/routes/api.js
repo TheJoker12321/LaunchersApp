@@ -62,6 +62,12 @@ api.post('/launchers', validLauncher, async (req, res) => {
     try {
 
         const {launcher} = req.body
+
+        if (!launcher['destroyed']) {
+
+            launcher['destroyed'] = false
+        }
+
         
         await db.collection('launchers').insertOne(launcher)
 
