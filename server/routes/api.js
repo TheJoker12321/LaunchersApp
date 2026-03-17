@@ -2,11 +2,13 @@ import express from 'express'
 import db from '../DB/connectMongo.js'
 import validLauncher from '../middleware/validLauncher.js'
 import { ObjectId } from 'mongodb'
+import { authorized } from '../middleware/authorized.js'
 
 const api = express.Router()
 
-api.get('/launchers', async (req, res) => {
+api.get('/launchers',authorized, async (req, res) => {
 
+    
     try {
         const launchers = await db.collection('launchers').find().toArray()
 
@@ -27,7 +29,7 @@ api.get('/launchers', async (req, res) => {
 
 })
 
-api.get('/launchers/:id', async (req, res) => {
+api.get('/launchers/:id', authorized, async (req, res) => {
 
     try {
         const { id } = req.params
@@ -57,7 +59,19 @@ api.get('/launchers/:id', async (req, res) => {
 })
 
 
-api.post('/launchers', validLauncher, async (req, res) => {
+api.post('/launchers', validLauncher, authorized, async (req, res) => {
+
+    const { payload } = req.headers
+    
+    if (payload['user_type'] !== 'admin' || payload['user_type'] !== 'Intelligence Corps') {
+
+        return res.status(401).json({
+
+            error: 'Unaouthorized'
+
+        })
+
+    }
 
     try {
 
@@ -88,7 +102,19 @@ api.post('/launchers', validLauncher, async (req, res) => {
     }
 })
 
-api.delete('/launchers/:id', async (req, res) => {
+api.delete('/launchers/:id', authorized, async (req, res) => {
+
+    const { payload } = req.headers
+    
+    if (payload['user_type'] !== 'admin' || payload['user_type'] !== 'Intelligence Corps') {
+
+        return res.status(401).json({
+
+            error: 'Unaouthorized'
+
+        })
+
+    }
 
     try {
 

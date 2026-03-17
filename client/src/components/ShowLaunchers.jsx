@@ -16,7 +16,11 @@ function ShowLaunchers() {
 
         async function getLaunchers() {
 
-            const launchers = await axios.get('http://localhost:3000/api/launchers')
+            const token = localStorage.getItem('token')
+            const launchers = await axios.get('http://localhost:3000/api/launchers', {
+
+                headers: {Authorization: `Bearer ${token}`}
+            })
             
             setData(launchers.data.launchers)
         }
@@ -28,9 +32,13 @@ function ShowLaunchers() {
     async function deleteLauncher(e) {
 
         e.stopPropagation()
+        const token = localStorage.getItem('token')
+        await axios.delete(`http://localhost:3000/api/launchers/${e.target.id}`, {
+
+            headers: {Authorization: `Bearer ${token}`}
+        })
         const newData = data.filter((obj) => obj._id !== e.target.id)
         setData(newData)        
-        await axios.delete(`http://localhost:3000/api/launchers/${e.target.id}`)
         setFlag(!flag)
 
     }
@@ -47,7 +55,10 @@ function ShowLaunchers() {
         
         try {
 
-            const launcherFound = await axios.get(`http://localhost:3000/api/launchers/${id}`)
+            const token = localStorage.getItem('token')
+            const launcherFound = await axios.get(`http://localhost:3000/api/launchers/${id}`, {
+                headers: {Authorization: `Bearer ${token}`}
+            })
             
             setDataShow([launcherFound.data.launcher])
 

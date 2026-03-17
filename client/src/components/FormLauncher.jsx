@@ -27,8 +27,12 @@ function FormLauncher() {
         }
 
         try {
+            
+            const token = localStorage.getItem('token')
 
-            await axios.post('http://localhost:3000/api/launchers', {launcher})
+            await axios.post('http://localhost:3000/api/launchers', {launcher}, {
+                headers: {Authorization: `Bearer ${token}`}
+            })
             
         } catch (err) {
 

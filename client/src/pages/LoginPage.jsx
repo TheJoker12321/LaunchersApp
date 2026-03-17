@@ -5,10 +5,11 @@ function LoginPage() {
 
     return (
 
-        <>
+        <div className="login-page">
+
          <Navbar />
          <Login />
-        </>
+        </div>
     )
 }
 

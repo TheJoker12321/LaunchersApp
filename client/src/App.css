@@ -65,7 +65,15 @@ body {
   align-items: center;
 }
 
-.post-launcher {
+.div-submit, .reg-button {
+
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.post-launcher, .form-login, .form-register, .form-update {
 
   height: 70%;
   width: 50%;
@@ -233,13 +241,34 @@ body {
 
 .id-detail {
 
-  margin-top: 2rem;
+  margin-top: 1rem;
+  font-size: 1rem;
 
 }
 
-.name-detail, .type-detail, .lat-detail, .long-detail, .city-detail {
+.name-detail, .type-detail, .lat-detail, .long-detail, .city-detail, .des-detail {
 
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   padding-bottom: 10px;
   border-bottom: 1px solid black ;
+}
+
+.login-page, .register-page {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.div-login, .register-div, .update-div {
+
+  background-color: rgba(127, 148, 255, 0.359);  
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
 }

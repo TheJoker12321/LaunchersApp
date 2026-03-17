@@ -13,8 +13,6 @@ export function authorized(req, res, next) {
 
         })
     }
-
-    console.log('hii');
     
 
     const partAuth = authorization.split(' ')

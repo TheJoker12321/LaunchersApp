@@ -38,7 +38,7 @@ function EditUser() {
             setTimeout(() => {
                 setUpdated(false)
             }, 5000)
-            
+
         } catch (err) {
 
             console.error(err);
@@ -49,21 +49,22 @@ function EditUser() {
 
     return (
 
-        <div>
-            <form>
-                <div>
+        <div className="update-div">
+            <form className="form-update">
+                <h1 style={{margin: '0'}}>Update User</h1>
+                <div className="input-div">
                     <label htmlFor="name-update">User Name: </label>
                     <input id="name-update" type="text" defaultValue={valueUpdated.username} onChange={e => setUsername(e.target.value)}/>
                 </div>
-                <div>
+                <div className="input-div">
                     <label htmlFor="pass-update">Password: </label>
                     <input id="pass-update" type="password" defaultValue={valueUpdated.password} onChange={e => setPassword(e.target.value)}/>
                 </div>
-                <div>
+                <div className="input-div">
                     <label htmlFor="email-update">Email</label>
                     <input id="email-update" type="email" defaultValue={valueUpdated.email} onChange={e => setEmail(e.target.value)}/>
                 </div>
-                <button id={valueUpdated._id} onClick={(e) => updateUser(e)}>Update</button>
+                <button className="submit" id={valueUpdated._id} onClick={(e) => updateUser(e)}>Update</button>
                 {updated && <div>user updated successfully</div>} 
             </form>
         </div>
